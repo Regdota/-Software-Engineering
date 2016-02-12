@@ -6,31 +6,134 @@ using System.Threading.Tasks;
 
 namespace pay
 {
+     
     class Program
     {
         static void Main(string[] args)
         {
-            int a = 5, b = 10, c = 10000, d=6000, pay;
-
-            Console.WriteLine("Сумму выручки:");
-            pay = Convert.ToInt32(Console.ReadLine());
+        
+        int  a = 5, b = 10, f = 300, d = 6000, c= 10000, one, two, three, four, five, six, seven, rezone, reztwo, rezthree, rezfour, rezfive, rezsix, rezseven, rez;
             
-            if(pay<=d && c)
+            Console.WriteLine("Сумма выручки в понедельник:");
+            one = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Сумма выручки во вторник:");
+            two = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Сумма выручки в среду:");
+            three = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Сумма выручки в четверг:");
+            four = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Сумма выручки в пятницу:");
+            five = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Сумма выручки в субботу:");
+            six = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Сумма выручки в воскресение:");
+            seven = Convert.ToInt32(Console.ReadLine());
+
+           
+             if(one<=d)
             {
-                Console.WriteLine("Зарплата работника: 300");
+                rezone = f;
             }
-            else if (pay <= c)
+            else if (one <= c)
             {
-                Console.WriteLine("Зарплата работника:");
-                Console.WriteLine(pay * a/100);
+                rezone = one * a/100;
             }
             else
             {
-                Console.WriteLine("Зарплата работника:");
-                Console.WriteLine((pay-c)*b/100 + c*a/100);
+                rezone = (one - c) * b / 100 + c * a / 100;
             }
-            Console.WriteLine("Нажмите ENTER что бы выйти из программы");
-            Console.ReadKey();
-        }
+
+
+         if( two <=d )
+            {
+                reztwo = f;
+            }
+            else if (two <= c)
+            {
+                reztwo = two * a / 100;
+            }
+            else
+            {
+                reztwo = (two - c) * b / 100 + c * a / 100;
+            }
+          
+
+
+ if(three<=d)
+            {
+                rezthree = f;
+            }
+            else if (three <= c)
+            {
+                rezthree = three * a / 100;
+            }
+            else
+           {
+               rezthree = (three - c) * b / 100 + c * a / 100;
+           }
+
+ if(four<=d)
+            {
+                rezfour = f;
+            }
+            else if (four <= c)
+            {
+                rezfour = four * a / 100;
+            }
+            else
+            {
+                rezfour = (four - c) * b / 100 + c * a / 100;
+            }
+
+ if(five<=d)
+            {
+                rezfive = f;
+            }
+            else if (five <= c)
+            {
+                rezfive = five * a / 100;
+            }
+            else
+            {
+                rezfive = (five - c) * b + c * a / 100;
+            }
+          
+
+ if(six<=d)
+            {
+                rezsix = f;
+            }
+            else if (six <= c)
+            {
+                rezsix = six * a / 100;
+            }
+            else
+            {
+                rezsix = (six - c) * b + c * a / 100;
+            }
+          
+
+ if(seven<=d)
+            {
+                rezseven = f;
+            }
+            else if (seven <= c)
+            {
+                rezseven = seven * a / 100;
+            }
+            else
+            {
+                rezseven = (seven - c) * b / 100 + c * a / 100;
+            }
+
+            rez = rezone + reztwo + rezthree + rezfour + rezfive + rezsix + rezseven;
+            Console.WriteLine("Зарплата работника: " + rez);
+    }                         
     }
 }
