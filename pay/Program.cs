@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,24 +10,24 @@ namespace pay
     {
         static void Main(string[] args)
         {
-            int a = 5, b = 10, c = 10000, d=6000, pay;
+            float a = 0.05f, b = 0.1f, c = 10000, d = 6000, pay;
 
             Console.WriteLine("Сумму выручки:");
             pay = Convert.ToInt32(Console.ReadLine());
-            
-            if(pay<=d && c)
+
+            if (pay <= d)
             {
                 Console.WriteLine("Зарплата работника: 300");
             }
             else if (pay <= c)
             {
                 Console.WriteLine("Зарплата работника:");
-                Console.WriteLine(pay * a/100);
+                Console.WriteLine(pay * a );
             }
             else
             {
                 Console.WriteLine("Зарплата работника:");
-                Console.WriteLine((pay-c)*b/100 + c*a/100);
+                Console.WriteLine((pay - c) * b + c * a);
             }
             Console.WriteLine("Нажмите ENTER что бы выйти из программы");
             Console.ReadKey();
