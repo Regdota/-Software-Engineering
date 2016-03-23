@@ -4,111 +4,89 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace kkkkk
+namespace pay2
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int a = 5, b = 10, c = 10000, d = 6000, r=100000, f= 15, g=300, y=100, sum;
-            int o, t, th, fo, fi, six, seven;
+            int a = 5, b = 10, c = 10000, d = 6000, r = 100000, f = 15, g = 300, y = 100, sum = 0, sb = 0, sv = 0 ;
+            
 
 
-
-            Console.WriteLine("Понедельник:");
-            o = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Вторник:");
-            t = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Среда:");
-            th = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Четверг:");
-            fo = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Пятница:");
-            fi = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Суббота:");
-            six = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Воскресение:");
-            seven = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Сколько отработано будних дней: ");
+            int sizeb = int.Parse(Console.ReadLine());
+            int[] myArr = new int[sizeb];
 
 
-            int[] myArr = new int[7];
-
-            // Инициализируем каждый элемент массива вручную 
-            myArr[0] = o;
-            myArr[1] = t;
-            myArr[2] = th;
-            myArr[3] = fo;
-            myArr[4] = fi;
-            myArr[5] = six;
-            myArr[6] = seven;
+            Console.WriteLine("Сколько отработано выходных дней: ");
+            int sizev = int.Parse(Console.ReadLine());
+            int[] myArr2 = new int[sizev];
 
 
-
-
-
-
-
-
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < myArr.Length; i++)
             {
+                Console.WriteLine("Введите запрплату за будний день:");
+                myArr[i] = int.Parse(Console.ReadLine());
 
                 if (myArr[i] <= d)
                 {
                     myArr[i] = g;
+                    sb = sb + myArr[i];
+
                 }
-                if (myArr[i] <= c)
+                if (myArr[i] <= c && myArr[i] > d)
                 {
                     myArr[i] = myArr[i] * a / y;
-                }               
-                if (myArr[i] > c)
+                    sb = sb + myArr[i];
+                }
+                if (myArr[i] > c && myArr[i] <= r)
                 {
                     myArr[i] = (myArr[i] - c) * b / y + c * a / y;
-                }
-                if (myArr[i]>r)
-                {
-                    myArr[i] = myArr[i] * f / y;
-                }
-
-            }
-
-
-
-            /*-------------------------*/
-            for (int i = 5; i < 6; i++)
-            {
-
-                if (myArr[i] <= d)
-                {
-                    myArr[i] = g * 2;
-                }
-                if (myArr[i] <= c)
-                {
-                    myArr[i] = myArr[i] * a / y * 2;
-                }
-                if (myArr[i] > c)
-                {
-                    myArr[i] = (myArr[i] - c) * b / y * 2 + c * a / y * 2;
+                    sb = sb + myArr[i];
                 }
                 if (myArr[i] > r)
                 {
-                    myArr[i] = myArr[i] * f / y * 2;
-                }
-
-               
+                    myArr[i] = myArr[i] * f / y;
+                    sb = sb + myArr[i];
+                } 
             }
-            /*-------------*/
 
-            /*Не правильно работает...*/
-            Console.WriteLine("Зарплата: " + myArr.Sum());
-            
-                
-  
-            
-          
+
+
+            for (int i = 0; i < myArr2.Length; i++)
+            {
+                Console.WriteLine("Введите запрплату за выходной день:");
+                myArr2[i] = int.Parse(Console.ReadLine());
+
+                if (myArr2[i] <= d)
+                {
+                    myArr2[i] = g * 2;
+                    sv = sv + myArr2[i];
+
+                }
+                if (myArr2[i] <= c && myArr2[i] > d)
+                {
+                    myArr2[i] = (myArr2[i] * a / y) * 2;
+                    sv = sv + myArr2[i];
+                }
+                if (myArr2[i] > c && myArr2[i] <= r)
+                {
+                    myArr2[i] = ((myArr2[i] - c) * b / y + c * a / y) * 2;
+                    sv = sv + myArr2[i];
+                }
+                if (myArr2[i] > r)
+                {
+                    myArr2[i] = (myArr2[i] * f / y) * 2;
+                    sv = sv + myArr2[i];
+                }
+                Console.WriteLine(sv);
+            }
+            sum = sb + sv;
+            Console.WriteLine("Зарплата работника: " +sum);
+
 
             Console.ReadKey();
-
-
         }
     }
 }
